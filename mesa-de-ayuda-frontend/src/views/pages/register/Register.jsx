@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CButton, CCard, CCardBody, CCardGroup, CCol, CContainer, CForm, CFormInput, CInputGroup, CInputGroupText, CRow } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
-import { cilLockLocked, cilUser } from '@coreui/icons';
+import { cilLockLocked, cilPhone, cilUser } from '@coreui/icons';
 import imagenLogin from '/laragon/www/mesa-de-ayuda/mesa-de-ayuda-frontend/src/assets/images/imagenLogin3.jpg';
 
-const Login = () => {
+const Register = () => {
     const navigate = useNavigate();
 
     const handleRegisterClick = () => {
-        navigate('/register');
+        navigate('/');
     }
     return (
         <div 
@@ -24,7 +24,7 @@ const Login = () => {
                             <CCard className="p-1">
                                 <CCardBody>
                                     <CForm className="p-5">
-                                        <h1>Inicia Sesión</h1>
+                                        <h1>Registrar</h1>
                                         <p className="text-body-secondary">Ingresa tu cuenta</p>
                                         <CInputGroup className="mb-3">
                                             <CInputGroupText>
@@ -33,6 +33,16 @@ const Login = () => {
                                             <CFormInput
                                                 placeholder="Username"
                                                 autoComplete="username"
+                                                type="text"
+                                            />
+                                        </CInputGroup>
+                                        <CInputGroup className="mb-3">
+                                            <CInputGroupText>
+                                                <CIcon icon={cilPhone} />
+                                            </CInputGroupText>
+                                            <CFormInput
+                                                placeholder="Telefono"
+                                                autoComplete="telefono"
                                                 type="text"
                                             />
                                         </CInputGroup>
@@ -46,15 +56,25 @@ const Login = () => {
                                                 autoComplete="current-password"
                                             />
                                         </CInputGroup>
+                                        <CInputGroup className="mb-4">
+                                            <CInputGroupText>
+                                                <CIcon icon={cilLockLocked} />
+                                            </CInputGroupText>
+                                            <CFormInput
+                                                type="password"
+                                                placeholder="Repetir Password"
+                                                autoComplete="current-password"
+                                            />
+                                        </CInputGroup>
                                         <CRow>
                                             <CCol xs={6}>
                                                 <CButton type="submit" color="primary" className="px-4">
-                                                    Iniciar Sesión
+                                                    Registrar
                                                 </CButton>
                                             </CCol>
                                             <CCol xs={6} className="text-right">
                                                 <CButton color="link" className="px-0" onClick={handleRegisterClick} >
-                                                    ¿No tienes cuenta? ¡Regístrate!
+                                                    ¿Ya tienes cuenta? Inicia sesion!
                                                 </CButton>
                                             </CCol>
                                         </CRow>
@@ -79,4 +99,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;

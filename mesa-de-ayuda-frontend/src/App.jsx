@@ -6,16 +6,16 @@ import './scss/style.scss'
 
 
 const Login = React.lazy(() => import('./views/pages/login/Login'))
+const Register = React.lazy(() => import('./views/pages/register/Register'))
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <HashRouter>
       <Suspense>
         <Routes>
           <Route exact path='/' name="Login" element={<Login/>}/>
-          <Route/>
+          <Route exact path='/register' name="Register" element={<Register/>} />
           <Route/>
           <Route/>
         </Routes>
